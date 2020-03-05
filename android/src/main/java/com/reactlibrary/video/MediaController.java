@@ -162,7 +162,7 @@ public class MediaController {
         VideoConvertRunnable.runConversion(path, dest);
     }
 
-    @TargetApi(16)
+    @TargetApi(19)
     private long readAndWriteTrack(MediaExtractor extractor, MP4Builder mediaMuxer, MediaCodec.BufferInfo info, long start, long end, File file, boolean isAudio) throws Exception {
         int trackIndex = selectTrack(extractor, isAudio);
         if (trackIndex >= 0) {
@@ -219,7 +219,7 @@ public class MediaController {
         return -1;
     }
 
-    @TargetApi(16)
+    @TargetApi(19)
     private int selectTrack(MediaExtractor extractor, boolean audio) {
         int numTracks = extractor.getTrackCount();
         for (int i = 0; i < numTracks; i++) {
@@ -244,7 +244,7 @@ public class MediaController {
      * @param destinationPath the destination directory where compressed video is eventually saved
      * @return
      */
-    @TargetApi(16)
+    @TargetApi(19)
     public boolean convertVideo(final String sourcePath, String destinationPath, int quality, long startT, long endT, CompressProgressListener listener) {
         this.path=sourcePath;
 
